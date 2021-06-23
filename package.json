@@ -1,0 +1,18 @@
+{
+  "name": "fst",
+  "version": "1.0.0",
+  "description": "Finite-State Transducers",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adalberto Pompolo",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "4.3.4"
+  },
+  "engines": {
+    "node": "14.16.1"
+  }
+}
