@@ -10,4 +10,12 @@ describe('Normalizer FST', () => {
     const input = '0001';
     expect(() => NormalizerFST.run(input)).to.throw();
   });
+  it('should normalize correctly', () => {
+    expect(NormalizerFST.run('000')).to.be.equal('0');
+    expect(NormalizerFST.run('001')).to.be.equal('1');
+    expect(NormalizerFST.run('010')).to.be.equal('10');
+    expect(NormalizerFST.run('100')).to.be.equal('100');
+    expect(NormalizerFST.run('101')).to.be.equal('101');
+    expect(NormalizerFST.run('042')).to.be.equal('42');
+  });
 });

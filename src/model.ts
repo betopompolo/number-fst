@@ -4,7 +4,7 @@ export interface State {
 }
 
 export interface Transition {
-  input: string;
-  output: string;
+  input: string | RegExp;
+  output: string | ((c: string) => string);
   getNextState: () => State;
 }
