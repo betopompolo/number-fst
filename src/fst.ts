@@ -1,8 +1,8 @@
 import { State } from "./model";
 
 export const FST = {
-  run({ input, initialState, endState }: FSTRunOptions): string {
-    let output = '';
+  run({ input, initialState, endState }: FSTRunOptions): string[] {
+    const outputList = [];
     let currentState = initialState;
 
     for (const c of input) {
@@ -10,7 +10,11 @@ export const FST = {
       if (!transition) {
         break;
       }
-      output += typeof transition.output === 'string' ? transition.output : transition.output(c);
+
+      const output = typeof transition.output === 'string' ? transition.output : transition.output?.(c);
+      if (output) {
+        outputList.push(output);
+      }
       const nextState = transition.getNextState?.();
       if (nextState) {
         currentState = nextState;
@@ -21,7 +25,7 @@ export const FST = {
       throw new Error('Invalid endState');
     } 
 
-    return output;
+    return outputList;
   }
 }
 

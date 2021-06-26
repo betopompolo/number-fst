@@ -2,11 +2,11 @@ import { FST } from "./fst";
 import { State, Transition } from "./model";
 
 export const NormalizerFST = {
-  run(input: string) {
+  run(input: string): string {
     if ([...input].some(c => isNaN(Number(c))) || input?.length !== 3) {
       throw new Error(`Invalid input: ${input}`);
     }
-    return FST.run({ input, initialState: q0 });
+    return FST.run({ input, initialState: q0 }).join('');
   }
 }
 

@@ -4,6 +4,8 @@ export interface State {
 
 export interface Transition {
   input: string | RegExp;
-  output: string | ((c: string) => string);
+  output: string | TransitionOutputFn | null;
   getNextState?: () => State;
 }
+
+type TransitionOutputFn = (c: string) => string;
