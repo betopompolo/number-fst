@@ -11,10 +11,13 @@ export const FST = {
         break;
       }
       output += typeof transition.output === 'string' ? transition.output : transition.output(c);
-      currentState = transition.getNextState();
+      const nextState = transition.getNextState?.();
+      if (nextState) {
+        currentState = nextState;
+      }
     }
 
-    if (endState && endState.name !== currentState.name) {
+    if (endState && endState !== currentState) {
       throw new Error('Invalid endState');
     } 
 

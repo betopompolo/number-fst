@@ -17,7 +17,6 @@ const q2Transition: Transition = {
 }
 
 const q0: State = {
-  name: 'q0',
   transitions: [
     {
       input: '0',
@@ -29,7 +28,6 @@ const q0: State = {
 }
 
 const q1: State = {
-  name: 'q1',
   transitions: [
     {
       input: '0',
@@ -41,6 +39,5 @@ const q1: State = {
 }
 
 const q2: State = {
-  name: 'q2',
   transitions: [q2Transition]
 }
