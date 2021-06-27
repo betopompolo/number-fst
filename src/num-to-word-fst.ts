@@ -1,9 +1,11 @@
 import { FST } from "./fst";
 import { State } from "./model";
+import { NormalizerFST } from "./normalizer-fst";
 
 export const NumToWordFST = {
   run(input: string): string {
-    const output = FST.run({ input: input, initialState: hundredState });
+    const normalizedInput = NormalizerFST.run(input);
+    const output = FST.run({ input: normalizedInput, initialState: hundredState });
     return output.join(' e ');
   }
 }
